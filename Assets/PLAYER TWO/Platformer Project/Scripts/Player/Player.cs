@@ -20,12 +20,6 @@ namespace PLAYERTWO.PlatformerProject
 		protected Vector3 m_skinInitialPosition;
 		protected Quaternion m_skinInitialRotation;
 
-		// Cached original stats values so we can restore them if needed
-		protected float m_originalTopSpeed;
-		protected float m_originalRunningTopSpeed;
-		protected float m_originalMaxJumpHeight;
-		protected float m_originalMinJumpHeight;
-
 		/// <summary>
 		/// Returns the Player Input Manager instance.
 		/// </summary>
@@ -416,9 +410,9 @@ namespace PLAYERTWO.PlatformerProject
 		}
 
 		/// <summary>
-		/// Applies a temporary speed and jump boost by creating a runtime copy of the current stats,
-		/// applying multipliers to that copy, and restoring the original stats reference after <paramref name="duration"/> seconds.
-		/// This avoids modifying the shared ScriptableObject asset.
+		/// Applies a temporary speed and jump boost by multiplying the current stats.
+		/// The stats are restored after <paramref name="duration"/> seconds.
+		/// Note: This modifies the runtime instance of <c>stats.current</c> and will be reverted.
 		/// </summary>
 		/// <param name="speedMultiplier">Multiplier applied to top speeds (topSpeed and runningTopSpeed).</param>
 		/// <param name="jumpMultiplier">Multiplier applied to jump heights (maxJumpHeight and minJumpHeight).</param>
@@ -464,29 +458,6 @@ namespace PLAYERTWO.PlatformerProject
 			s.minJumpHeight = originalMinJump;
 
 			m_statBoostCoroutine = null;
-		}
-
-		/// <summary>
-		/// Restores cached base stats (top speed and jump heights) immediately.
-		/// Use this if you detect stats were left modified and you want to reset to the values
-		/// that were present when the Player instance awoke.
-		/// </summary>
-		public void RestoreBaseStats()
-		{
-			// Stop any active boost coroutine
-			if (m_statBoostCoroutine != null)
-			{
-				StopCoroutine(m_statBoostCoroutine);
-				m_statBoostCoroutine = null;
-			}
-
-			if (stats != null && stats.current != null)
-			{
-				stats.current.topSpeed = m_originalTopSpeed;
-				stats.current.runningTopSpeed = m_originalRunningTopSpeed;
-				stats.current.maxJumpHeight = m_originalMaxJumpHeight;
-				stats.current.minJumpHeight = m_originalMinJumpHeight;
-			}
 		}
 
 		/// <summary>
@@ -794,15 +765,6 @@ namespace PLAYERTWO.PlatformerProject
 			InitializeTag();
 			InitializeRespawn();
 
-			// Cache original stats values so we can restore them later if a boost left them changed
-			if (stats != null && stats.current != null)
-			{
-				m_originalTopSpeed = stats.current.topSpeed;
-				m_originalRunningTopSpeed = stats.current.runningTopSpeed;
-				m_originalMaxJumpHeight = stats.current.maxJumpHeight;
-				m_originalMinJumpHeight = stats.current.minJumpHeight;
-			}
-
 			entityEvents.OnGroundEnter.AddListener(() =>
 			{
 				ResetJumps();
@@ -827,12 +789,6 @@ namespace PLAYERTWO.PlatformerProject
 		protected virtual void OnTriggerExit(Collider other)
 		{
 			HandleWaterExitCollision(other);
-		}
-
-		protected virtual void OnDisable()
-		{
-			// Ensure any temporary modifications are cleared when the player is disabled
-			RestoreBaseStats();
 		}
 	}
 }
