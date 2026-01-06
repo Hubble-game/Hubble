@@ -13581,6 +13581,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 698857577358643038, guid: eb0f77ac3ce65a04db54ff55e59b0815,
+        type: 3}
+      propertyPath: renderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 1639483510}
     - target: {fileID: 6650432633027884448, guid: eb0f77ac3ce65a04db54ff55e59b0815,
         type: 3}
       propertyPath: animator
@@ -14757,6 +14762,12 @@ Transform:
   - {fileID: 243946449}
   m_Father: {fileID: 1899971018}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &1639483510 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -5605304064255753239, guid: f33896f092ce7094a9567e0be19b67b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1182783145}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1642408115
 PrefabInstance:
   m_ObjectHideFlags: 0
