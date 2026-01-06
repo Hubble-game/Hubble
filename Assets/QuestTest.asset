@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3801b6cf41a2d39439860edde8dd971b, type: 3}
+  m_Name: QuestTest
+  m_EditorClassIdentifier: 
+  questID: 1
+  questName: Saute jeune robot
+  questDescription: Appuie sur la barre espace ou sur le bouton a pour sauter
+  objectives:
+  - rid: 8911560562920128513
+  - rid: 8911560562920128514
+  - rid: 8911560562920128515
+  requireSequentialCompletion: 1
+  experienceReward: 100
+  currentObjectiveIndex: 1
+  isActive: 1
+  isCompleted: 0
+  onQuestStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onQuestCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+  onObjectiveChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 8911560562920128513
+      type: {class: JumpQuestObjective, ns: QuestSystem, asm: Assembly-CSharp}
+      data:
+        objectiveID: jump_objective
+        description: Saute 1 fois
+        onObjectiveCompleted:
+          m_PersistentCalls:
+            m_Calls: []
+        onProgressChanged:
+          m_PersistentCalls:
+            m_Calls: []
+        requiredJumps: 1
+    - rid: 8911560562920128514
+      type: {class: KillEnemyQuestObjective, ns: QuestSystem, asm: Assembly-CSharp}
+      data:
+        objectiveID: objective_2
+        description: Description de l'objectif 2
+        onObjectiveCompleted:
+          m_PersistentCalls:
+            m_Calls: []
+        onProgressChanged:
+          m_PersistentCalls:
+            m_Calls: []
+        requiredKills: 1
+        specificEnemyType: 
+        acceptedEnemyTypes:
+        - Enemy
+    - rid: 8911560562920128515
+      type: {class: SwimQuestObjective, ns: QuestSystem, asm: Assembly-CSharp}
+      data:
+        objectiveID: objective_3
+        description: Description de l'objectif 3
+        onObjectiveCompleted:
+          m_PersistentCalls:
+            m_Calls: []
+        onProgressChanged:
+          m_PersistentCalls:
+            m_Calls: []
+        requiredSwimTime: 5
+        requiresContinuousSwimming: 0

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 032a51a01daa6ee4ab5c576afc83bf71, type: 3}
+  m_Name: DialogueIntroduction
+  m_EditorClassIdentifier: 
+  speakerName: ???
+  defaultCharactersPerSecond: 40
+  defaultDelayBetweenLines: 0
+  lines:
+  - text: Wouaf ! Wouaf !
+    delayAfter: 0
+    charactersPerSecond: 0
+  - text: "\xC7a alors ?? Rien de cass\xE9 ??"
+    delayAfter: 0
+    charactersPerSecond: 0
