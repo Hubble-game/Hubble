@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Stair
+  - WallRun
+  - Climb
+  - Fly
+  - Enemy
+  - Hazard
+  - Platform
+  - Pole
+  - Panel
+  - Spring
+  - Surface/Grass
+  - Surface/Wood
+  - Surface/Metal
+  - Volume/Water
+  - Interactive/Rail
+  - Hitbox
+  - Gravity Field
+  - Animal
+  - Water
+  - PlayerPC
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Post Processing
+  - 
+  - Ignore Projector
+  - Camera Obstructor
+  - Ignore Ledge Hanging
+  - Ignore Ledge Climbing
+  - Unstable Surface
+  - Ignore Wall Sliding
+  - 
+  - BodyPart
+  - 
+  - 
+  - 
+  - 
+  - Animal
+  - 
+  - 
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - gfghd
+  - 
+  - Item
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

@@ -1,0 +1,36 @@
+# Unity (recommended)
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# Visual Studio / Rider
+.vscode/
+.vs/
+*.csproj
+*.sln
+*.user
+*.userprefs
+*.pidb
+*.suo
+*.booproj
+*.unityproj
+*.pidb.meta
+
+# Unity generated
+*.apk
+*.aab
+*.unitypackage
+*.app
+*.exe
+*.pdb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Crashlytics
+crashlytics-build.properties
